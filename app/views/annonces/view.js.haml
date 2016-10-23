@@ -1,0 +1,6 @@
+- if params[:represent] == "particular"
+  $("#particulier").html("#{j render :partial => 'annonce', collection: Annonce.get_particular}");
+- elsif params[:represent] == "professionals"
+  $("#professionels").html("#{j render :partial => 'annonce', collection: Annonce.get_professionals}");
+- else
+  $("#home").html("#{j render :partial => 'annonce', collection: Annonce.all}");

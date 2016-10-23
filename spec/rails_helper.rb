@@ -3,8 +3,14 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
+# require 'factory_girl_rails'
 require 'spec_helper'
 require 'rspec/rails'
+
+require 'shoulda/matchers'
+
+require File.expand_path('../../spec/support/shoulda_matchers.rb', __FILE__)
+# require File.expand_path('../../spec/support/factory_girl.rb', __FILE__)
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in

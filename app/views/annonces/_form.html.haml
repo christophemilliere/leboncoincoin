@@ -1,0 +1,14 @@
+= simple_form_for @annonce, html: {multipart: true} do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :title
+    = f.collection_radio_buttons :represent, [[:particular, 'Particulier'] ,[:professionals, 'Professionels']], :first, :last, checked: @annonce.represent.present? ? @annonce.represent : "particular"
+    = f.association :category
+    = f.input :description
+    = f.input :photo, as: :file
+    = f.input :city
+    = f.input :zip_code
+    = f.input :price
+
+  .form-actions
+    = f.button :submit

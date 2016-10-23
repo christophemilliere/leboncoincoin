@@ -1,0 +1,18 @@
+%h1 Listing annonces
+
+%table.table
+  %thead.thead-inverse
+    %tr
+      %th #
+      %th Titre
+      %th Voir
+      %th Mettre à jour
+      %th Supprimer
+  %tbody
+    - @annonces.each do |annonce|
+      %tr
+        %th{:scope => "row"} 1
+        %td= annonce.title
+        %td= link_to "Voir l'annonce", annonce_path(annonce), class: " btn btn-outline-primary"
+        %td= link_to "Editer l'annonce", edit_annonce_path(annonce), class: "btn btn-outline-secondary"
+        %td= link_to "Editer l'annonce", annonce_path(annonce), method: :delete, class: "btn btn-outline-danger"

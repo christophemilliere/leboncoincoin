@@ -1,0 +1,8 @@
+.card
+  = image_tag(annonce.photo.thumb.url, class:"card-img-top")
+  .card-block
+    %h4.card-title= annonce.title
+    %p.card-text= annonce.description
+    %p= number_to_currency(annonce.price, locale: :fr)
+    %p= time_ago_in_words(annonce.created_at)
+    %a.btn.btn-primary{:href => "#"} Voir l'annonce

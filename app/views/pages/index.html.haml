@@ -1,0 +1,25 @@
+%br
+-if @annonces.present?
+  %ul.nav.nav-tabs{:role => "tablist"}
+    %li.nav-item
+      =link_to "Toutes les annonces #{@annonces.count}", view_annonces_path(), :remote => true, 'data-toggle' => 'tab', 'data-target' => '#home', 'data-role' => 'tab',class: " nav-link"
+    %li.nav-item
+      =link_to "Particulier #{@annonces.get_particular.count}", view_annonces_path(represent: :particular), :remote => true, 'data-toggle' => 'tab', 'data-target' => '#particulier', 'data-role' => 'tab',class: " nav-link"
+    %li.nav-item
+      =link_to "Professionels #{@annonces.get_professionals.count}", view_annonces_path(represent: :professionals), :remote => true, 'data-toggle' => 'tab', 'data-target' => '#professionels', 'data-role' => 'tab',class: " nav-link"
+  / Tab panes
+  .tab-content
+    #home.tab-pane.active{:role => "tabpanel"}
+      - @annonces.each do |annonce|
+        .card
+          = image_tag(photo_helper(annonce.photo), class:"card-img-top")
+          .card-block
+            %h4.card-title= annonce.title
+            %p.card-text= annonce.description
+            %p= number_to_currency(annonce.price, locale: :fr)
+            %p= time_ago_in_words(annonce.created_at)
+            = link_to "Voir l'annonce", annonce_path(annonce), class: " btn btn-outline-primary"
+    #particulier.tab-pane{:role => "tabpanel"}
+    #professionels.tab-pane{:role => "tabpanel"}
+- else
+  %h2 Pas d'annonce

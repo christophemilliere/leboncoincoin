@@ -1,0 +1,28 @@
+!!!
+%html
+  %head
+    %title Leboncoicoin
+    = csrf_meta_tags
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-dark.navbar-fixed-top.bg-inverse
+      %button.navbar-toggler.hidden-sm-up{"aria-controls" => "navbar", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
+      %a.navbar-brand{:href => "/"} Leboncoicoin
+      #navbar
+        %nav.nav.navbar-nav.float-xs-left
+        .float-xs-right
+          - if !user_signed_in?
+            = link_to 'Se connecter', new_user_session_path, class: 'btn-nav'
+            = link_to 'Inscription', new_user_registration_path, class: 'btn-nav'
+          - else
+            = link_to "Se déconnecter", destroy_user_session_path, :method => :delete, class:"btn-nav"
+            = link_to "Ajouter une annonce", new_annonce_path, class:"btn-nav"
+            = link_to "AVoir mes annonces", annonces_path, class:"btn-nav"
+    .container
+      - flash.each do |type,message|
+        %div{ class:"#{flash_class(type) }"}
+          = message
+      = yield
+  :javascript
+    $(".alert").delay(5000).fadeOut();

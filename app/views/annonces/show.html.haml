@@ -1,0 +1,25 @@
+%p
+  %b Title:
+  = @annonce.title
+%p
+  = image_tag(photo_helper(@annonce.photo))
+%p
+  %b Category:
+  = @annonce.category.name
+%p
+  %b Description:
+  = @annonce.description
+%p
+  %b City:
+  = @annonce.city
+%p
+  %b Zip code:
+  = @annonce.zip_code
+%p
+  %b Price:
+  = number_to_currency(@annonce.price, locale: :fr)
+
+= link_to 'Edit', edit_annonce_path(@annonce)
+\|
+= link_to 'Back', annonces_path
+

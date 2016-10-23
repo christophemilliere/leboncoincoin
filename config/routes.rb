@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root "pages#index"
+
+  resources :annonces do
+    collection do
+      get :view
+    end
+  end
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
