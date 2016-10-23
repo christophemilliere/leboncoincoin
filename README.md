@@ -3,6 +3,8 @@ http://localhost:3000/
 
 
 ### Configuration
+base de donnée : `Postgres`
+
 Avant de lancer le serveur !!
 faire : `rake db:create && rake db:migrate`
 La commande pour créer des données dans la bdd est `rake db:seed`
@@ -12,6 +14,7 @@ La commande pour créer des données dans la bdd est `rake db:seed`
 
 ### pour se connecter avec les utilisateurs créés
 logins : `toto@free.fr, titi@free.fr, tutu@free.fr, alfred@free.fr`
+
 pwd: `12345678`
 
 
