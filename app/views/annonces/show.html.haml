@@ -1,25 +1,12 @@
-%p
-  %b Title:
-  = @annonce.title
-%p
-  = image_tag(photo_helper(@annonce.photo))
-%p
-  %b Category:
-  = @annonce.category.name
-%p
-  %b Description:
-  = @annonce.description
-%p
-  %b City:
-  = @annonce.city
-%p
-  %b Zip code:
-  = @annonce.zip_code
-%p
-  %b Price:
-  = number_to_currency(@annonce.price, locale: :fr)
-
-= link_to 'Edit', edit_annonce_path(@annonce)
-\|
-= link_to 'Back', annonces_path
-
+= link_to 'retour', annonces_path
+.jumbotron
+  %span.tag.tag-info
+    = @annonce.category.name
+  %h1.display-3= @annonce.title
+  %p.lead= @annonce.description
+  = image_tag(photo_helper(@annonce.photo), class: "text-align")
+  %hr.my-2/
+  %p= "#{@annonce.city} #{@annonce.zip_code}"
+  %p= number_to_currency(@annonce.price, locale: :fr)
+  %p.lead
+    %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Learn more

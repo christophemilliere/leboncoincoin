@@ -15,4 +15,4 @@
         %td= annonce.title
         %td= link_to "Voir l'annonce", annonce_path(annonce), class: " btn btn-outline-primary"
         %td= link_to "Editer l'annonce", edit_annonce_path(annonce), class: "btn btn-outline-secondary"
-        %td= link_to "Editer l'annonce", annonce_path(annonce), method: :delete, class: "btn btn-outline-danger"
+        %td= link_to "Supprimer l'annonce", annonce_path(annonce), method: :delete, class: "btn btn-outline-danger"

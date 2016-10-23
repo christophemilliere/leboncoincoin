@@ -1,5 +1,5 @@
 .card
-  = image_tag(annonce.photo.thumb.url, class:"card-img-top")
+  = image_tag(photo_helper(annonce.photo), class:"card-img-top")
   .card-block
     %h4.card-title= annonce.title
     %p.card-text= annonce.description
